@@ -4,8 +4,9 @@ namespace App\Http\Controllers\API\dosen;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Matakuliah;
 
-class Semester extends Controller
+class MatakuliahController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,6 @@ class Semester extends Controller
      */
     public function index()
     {
-       
         return response()->json(Matakuliah::all());
     }
 

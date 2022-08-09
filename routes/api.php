@@ -1,39 +1,36 @@
 <?php
-
-use Illuminate\Http\Request;
+use App\Http\Controllers\API\mahasiswa\MahasiswaController;
+use App\Http\Controllers\API\dosen\DsnMahasiswaController;
+use App\Http\Controllers\API\dosen\AbsenMhsController;
+use App\Http\Controllers\API\dosen\AbsenController;
+use App\Http\Controllers\API\dosen\DosenController;
+use App\Http\Controllers\API\dosen\JadwalController;
+use App\Http\Controllers\API\dosen\SemesterController;
+use App\Http\Controllers\API\dosen\MatakuliahController;
+use App\Http\Controllers\API\dosen\KontrakMahasiswaController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\AbsenController;
-use App\Http\Controllers\API\JadwalController;
-use App\Http\Controllers\API\SemesterController;
-use App\Http\Controllers\API\MahasiswaController;
-use App\Http\Controllers\API\MatakuliahController;
-use App\Http\Controllers\API\KontrakMatakuliahController;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
+| Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::resource('mahasiswa', MahasiswaController::class);
-
-// resource group
-Route::resources(
-    [
-        'mahasiswa' => MahasiswaController::class,
-        'matakuliah' => MatakuliahController::class,
-        'jadwal' => JadwalController::class,
-        'semester' => SemesterController::class,
-        'kontrak' => KontrakMatakuliahController::class,
-        'absen' => AbsenController::class,
-    ]
-);
+//Route::middleware(['auth', 'dosen'])->group(function () {
+    Route::resource('/actionabsen', AbsenController::class);
+    Route::resource('/absenMhs', AbsenMhsController::class);
+    Route::resource('/semester', SemesterController::class);
+    Route::resource('/jadwal', JadwalController::class);
+    Route::resource('/dosen', DosenController::class);
+    Route::resource('/kontrak_mahasiswa', KontrakMahasiswaController::class);
+    Route::resource('/mahasiswa', DsnMahasiswaController::class);
+    Route::resource('/matakuliah', MatakuliahController::class);
+    Route::get('/actionabsen/{user}/{id}', [AbsenController::class, 'create']);
+//});
