@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Jadwal;
 
 class JadwalController extends Controller
 {
@@ -14,7 +15,7 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Jadwal::all());
     }
 
     /**

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\dosen;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Absen;
 
 class AbsenController extends Controller
 {
@@ -14,7 +15,7 @@ class AbsenController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Absen::all());
     }
 
     /**
