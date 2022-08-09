@@ -4,6 +4,7 @@ use App\Http\Controllers\dosen\DsnMahasiswaController;
 use App\Http\Controllers\dosen\AbsenMhsController;
 use App\Http\Controllers\dosen\AbsenController;
 use App\Http\Controllers\dosen\DosenController;
+use App\Http\Controllers\dosen\JadwalController;
 use App\Http\Controllers\dosen\SemesterController;
 use App\Http\Controllers\dosen\MatakuliahController;
 use App\Http\Controllers\dosen\KontrakMahasiswaController;
@@ -26,6 +27,7 @@ Route::middleware(['auth', 'dosen'])->group(function () {
     Route::resource('/actionabsen', AbsenController::class);
     Route::resource('/absenMhs', AbsenMhsController::class);
     Route::resource('/semester', SemesterController::class);
+    Route::resource('/jadwal', JadwalController::class);
     Route::resource('/dosen', DosenController::class);
     Route::resource('/kontrak_mahasiswa', KontrakMahasiswaController::class);
     Route::resource('/mahasiswa', DsnMahasiswaController::class);

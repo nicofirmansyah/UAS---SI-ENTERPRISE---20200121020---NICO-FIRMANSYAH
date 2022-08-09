@@ -85,7 +85,7 @@
                     <span>Kontrak Mahasiswa </span></a>
                 </li>
             <li class="nav-item ">
-                <a class="nav-link" href="{{url('mahasiswaAbsensi')}}">
+                <a class="nav-link" href="{{url('jadwal')}}">
                     <i class="fas fa-user-tie"></i>
                     <span>Jadwal Matakuliah </span></a>
                 </li>
